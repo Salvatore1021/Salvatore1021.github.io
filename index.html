@@ -1,7 +1,407 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daksh Bhutani | Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #1a1a1a;
+            --primary-color: #00ffcc;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography & Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--surface-color);
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 1; /* Always visible initially */
+            transform: none;
+        }
+
+        .typewriter {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-right: 3px solid var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1);
+        }
+
+        .card h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .card ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--surface-color);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: var(--surface-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        th {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Animations */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .typewriter {
+                font-size: 2rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+            .card h3 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my GitHub profile site.</p>
+
+    <!-- Hero Section -->
+    <section id="hero" class="container">
+        <div class="typewriter">Daksh Bhutani</div>
+        <div class="hero-subtitle">B.Tech Data Science & Artificial Intelligence @ IIT Guwahati</div>
+        <p style="color: var(--text-muted); margin-bottom: 20px; max-width: 600px;">
+            Passionate about generative AI, predictive modeling, and building data-driven systems. Exploring the intersection of mathematics and backend engineering.
+        </p>
+        <div class="contact-links">
+            <a href="mailto:d.bhutani@iitg.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/daksh-bhutani1512" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/dakshbhutani" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="container scroll-reveal">
+        <h2>Education</h2>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Degree/Certificate</th>
+                        <th>Institute/Board</th>
+                        <th>CGPA/Percentage</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B.Tech. Major in DSAI</td>
+                        <td>Indian Institute of Technology, Guwahati</td>
+                        <td>8.81 (Current)</td>
+                        <td>2025 - Present</td>
+                    </tr>
+                    <tr>
+                        <td>Senior Secondary</td>
+                        <td>CBSE Board</td>
+                        <td>91.8%</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary</td>
+                        <td>CBSE Board</td>
+                        <td>94.6%</td>
+                        <td>2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="container scroll-reveal">
+        <h2>Key Projects</h2>
+        
+        <div class="card">
+            <h3>SkillDeck: AI-Driven Skill Analyzer <a href="#" style="color: var(--primary-color);"><i class="fab fa-github"></i></a></h3>
+            <div class="card-meta">Rhapsody 4.0 Hackathon, IISc Bangalore | March 2026</div>
+            <ul>
+                <li>Built a FastAPI backend integrating OpenAI and local LLMs to concurrently extract, parse, and normalize candidate competencies from PDFs and DOCX files against a custom JSON taxonomy.</li>
+                <li>Engineered a gap-scoring engine that mathematically prioritizes skill deficits by evaluating mandatory weighting, gap magnitude, and required proficiency levels.</li>
+                <li>Implemented a dependency-aware pathway engine using NetworkX and Kahn's Algorithm to generate topologically sorted, phase-grouped learning roadmaps from a curated course catalog.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>SpeakX Project Aurora <a href="#" style="color: var(--primary-color);"><i class="fab fa-github"></i></a></h3>
+            <div class="card-meta">Kriti | March 2026</div>
+            <ul>
+                <li>Engineered a Python-based MECE segmentation model utilizing weighted propensity scoring and an inverse-sigmoid churn risk function to map day-on-day user lifecycle journeys.</li>
+                <li>Integrated the Gemini 2.0 Flash API to auto-generate personalized, bilingual (Hindi-English) notification templates mapped to the Octalysis 8 Core Drives.</li>
+                <li>Implemented a Bayesian timing optimizer to rank delivery windows and enforce a segment-aware matrix of 3-9 daily notifications based on user activeness.</li>
+                <li>Built a self-learning feedback pipeline to classify template performance via CTR and engagement, actively suppressing underperforming messages.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>The World Tour of 99: Predictive Modeling <a href="#" style="color: var(--primary-color);"><i class="fab fa-github"></i></a></h3>
+            <div class="card-meta">Coding Club, IIT Guwahati | December 2025</div>
+            <ul>
+                <li>Engineered predictive features from chaotic historical tour logs, conducting rigorous EDA and data cleaning to extract actionable signals for forecasting event crowd energy.</li>
+                <li>Developed and optimized a machine learning regression model, employing advanced hyperparameter tuning techniques to minimize RMSE and validate text-based hypotheses.</li>
+                <li>Formulated a data-driven revenue optimization strategy, mathematically deriving ideal ticket pricing models based on predicted audience engagement metrics.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Skills & Courses Section -->
+    <section class="container scroll-reveal">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Languages & Databases</h4>
+                <div class="skill-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">C/C++</span>
+                    <span class="tag">R</span>
+                    <span class="tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Libraries & Frameworks</h4>
+                <div class="skill-tags">
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">FastAPI</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Core Domains & Tools</h4>
+                <div class="skill-tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Generative AI</span>
+                    <span class="tag">Data Analytics</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">Web3</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Key Coursework</h4>
+                <div class="skill-tags">
+                    <span class="tag">Linear Algebra</span>
+                    <span class="tag">Calculus</span>
+                    <span class="tag">Probability & Random Processes</span>
+                    <span class="tag">Data Structures & Algorithms</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Achievements Section -->
+    <section class="container scroll-reveal">
+        <h2>Experience & Achievements</h2>
+        
+        <div class="card">
+            <h3>Positions of Responsibility</h3>
+            <div style="margin-top: 15px;">
+                <p><strong>Associate Manager, Corp Relations and Marketing</strong> | Alcheringa, IIT Guwahati <span style="float: right; color: var(--text-muted);">Nov 2025 - Feb 2026</span></p>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 10px 0;">
+                <p><strong>Executive, Web Operations</strong> | Techniche, IIT Guwahati <span style="float: right; color: var(--text-muted);">Feb 2025 - Present</span></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Scholastic Achievements</h3>
+            <ul>
+                <li><strong>All India Rank 973</strong>, Joint Entrance Examination (JEE) Advanced, among 0.18 million candidates (2025)</li>
+                <li><strong>All India Rank 3758</strong>, Joint Entrance Examination (JEE) Main, among 1.1 million candidates (2025)</li>
+                <li><strong>Top 1%</strong>, National Standard Examination in Physics (NSEP) out of all appearing students (2025)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--surface-color); margin-top: 50px;">
+        <p>Built with code & logic by Daksh Bhutani.</p>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Intersection Observer for fade-in animations on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
