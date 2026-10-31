@@ -39,11 +39,9 @@ export default function Record({ quick }) {
                 <h4 className="rap__title">{a.title}</h4>
                 <p className="rap__detail">{a.detail}</p>
               </div>
-              {a.count != null && (
-                <span className="rap__value" aria-label={`${a.prefix}${a.count}${a.suffix}`}>
-                  {a.prefix}<span className="rap__num" data-count={a.count}>{a.count.toLocaleString('en-IN')}</span>{a.suffix}
-                </span>
-              )}
+              <span className="rap__value" aria-label={`${a.prefix}${a.count}${a.suffix}`}>
+                {a.prefix}<span className="rap__num" data-count={a.count}>{a.count.toLocaleString('en-IN')}</span>{a.suffix}
+              </span>
               {a.stamp && <span className="stamp rap__stamp">NATIONAL RUNNER-UP</span>}
             </div>
           ))}

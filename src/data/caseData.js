@@ -142,7 +142,7 @@ export const positions = [
 export const achievements = [
   { year: '2026', title: 'National Runner-Up', detail: 'Adobe University Hackathon 2026, among 3,00,000+ participants; one of the top 8 teams invited to the finale at Adobe India HQ, Noida.', prefix: '#', count: 2, suffix: '', stamp: true },
   { year: '2026', title: 'Codeforces', detail: 'Max rating 1320; longest daily solving streak of 100+ days.', prefix: '', count: 1320, suffix: '' },
-  { year: '2025', title: 'JEE Advanced', detail: 'Qualified JEE Advanced 2025.' },
+  { year: '2025', title: 'JEE Advanced — All India Rank', detail: 'AIR 973 among 0.18 million candidates.', prefix: 'AIR ', count: 973, suffix: '' },
 ]
 
 export const sections = [

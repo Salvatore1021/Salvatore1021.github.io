@@ -114,7 +114,7 @@ export function dossierTexture() {
       ...projects.map((p) => `- ${p.title}`),
       '',
       'PRIOR RECORD:',
-      ...achievements.map((a) => `- ${a.count != null ? `${a.prefix}${a.count} ` : ''}${a.title}`.slice(0, 44)),
+      ...achievements.map((a) => `- ${a.title}`.slice(0, 44)),
     ]
     lines.forEach((l, i) => g.fillText(l, 50, 140 + i * 40))
     // mugshot box
