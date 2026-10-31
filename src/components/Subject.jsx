@@ -105,7 +105,7 @@ function FieldNote() {
       <div className="fieldnote__content">
         <span style={{ fontWeight: 700, fontSize: 14 }}>FIELD NOTE — RECOVERED FROM SUBJECT'S DESK</span>
         <span className="fieldnote__big">B.Tech, Data Science &amp; AI · IIT Guwahati · CGPA 8.74</span>
-        <span className="fieldnote__scrawl">JEE Adv. AIR 973 — out of 0.18 million. Remember this.</span>
+        <span className="fieldnote__scrawl">Note to self: keep building. Ship more, talk less.</span>
       </div>
       <div className="fieldnote__dark" aria-hidden="true" />
       <span className="fieldnote__hint">{lit ? 'CLICK TO DIM' : 'MOVE THE TORCH · CLICK FOR LIGHTS'}</span>
