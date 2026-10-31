@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { subject, projects, achievements, education } from '../data/caseData'
+import { subject, projects, achievements } from '../data/caseData'
 
 // All 3D surfaces are painted on canvases at runtime — no image downloads needed.
 
@@ -109,13 +109,12 @@ export function dossierTexture() {
       `NAME ........ ${subject.name}`,
       `PROGRAM ..... B.Tech, DS & AI`,
       `INSTITUTE ... IIT Guwahati`,
-      `CGPA ........ ${education[0].score}`,
       '',
       'KNOWN ACTIVITY:',
       ...projects.map((p) => `- ${p.title}`),
       '',
       'PRIOR RECORD:',
-      ...achievements.map((a) => `- ${a.prefix}${a.count} ${a.title}`.slice(0, 44)),
+      ...achievements.map((a) => `- ${a.count != null ? `${a.prefix}${a.count} ` : ''}${a.title}`.slice(0, 44)),
     ]
     lines.forEach((l, i) => g.fillText(l, 50, 140 + i * 40))
     // mugshot box

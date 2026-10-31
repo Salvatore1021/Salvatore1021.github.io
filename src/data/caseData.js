@@ -10,7 +10,7 @@ export const subject = {
   caseNo: '250150012',
   role: 'B.Tech · Data Science & Artificial Intelligence',
   institute: 'Indian Institute of Technology, Guwahati',
-  tagline: 'Crawlers, price indices and LLM tooling — built at hackathon speed, backed by tests.',
+  tagline: '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.” — Will Durant',
   photo: 'subject.jpg', // drop your photo in /public/subject.jpg (silhouette shown until then)
   resume: 'Daksh_Bhutani_Resume.pdf',
   contacts: {
@@ -142,7 +142,7 @@ export const positions = [
 export const achievements = [
   { year: '2026', title: 'National Runner-Up', detail: 'Adobe University Hackathon 2026, among 3,00,000+ participants; one of the top 8 teams invited to the finale at Adobe India HQ, Noida.', prefix: '#', count: 2, suffix: '', stamp: true },
   { year: '2026', title: 'Codeforces', detail: 'Max rating 1320; longest daily solving streak of 100+ days.', prefix: '', count: 1320, suffix: '' },
-  { year: '2025', title: 'JEE Advanced', detail: 'Qualified with an All India Rank of 973.' },
+  { year: '2025', title: 'JEE Advanced', detail: 'Qualified JEE Advanced 2025.' },
 ]
 
 export const sections = [
